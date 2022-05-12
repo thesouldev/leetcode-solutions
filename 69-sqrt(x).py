@@ -1,3 +1,8 @@
+"""
+Method to determine square root
+Time Complexity: O(n)
+Space Complexity: O(1)
+"""
 class Solution:
     def mySqrt(self, x: int) -> int:
         val = x
