@@ -1,32 +1,22 @@
-from operator import truediv
-
-
+"""
+Method: 1385. Find the Distance Value Between Two Arrays
+Time Complexity: O(n2)
+Space Complexity: O(1)
+"""
 class Solution:
     def findTheDistanceValue(self, arr1, arr2, d: int) -> int:
-        def bsearch(arr, val):
-            low = 0
-            high = len(arr) - 1
-
-            while low <= high:
-                mid = (low + high) // 2
-                if arr[mid] == val:
-                    return True
-                elif arr[mid] < val:
-                    low = mid + 1
-                elif arr[mid] > val:
-                    high = mid - 1
-            return False
-
-        arr2_sorted = sorted(arr2)
         count = 0
-
         for i in arr1:
+            count += 1
             for j in arr2:
                 if abs(i-j) <= d:
-                    count += 1
+                    count -= 1
+                    break
+                
+        return count
 
             
 
-arr1, arr2, d = [4, 5, 8], [10, 9, 1, 8], 2
+arr1, arr2, d = [2,1,100,3], [-5,-2,10,-3,7], 6
 obj = Solution()
 print(obj.findTheDistanceValue(arr1, arr2, d))
